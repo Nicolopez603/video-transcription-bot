@@ -1,5 +1,17 @@
 import os
 import ffmpeg
+from pytube import YouTube
+
+def download_youtube_video(url, output_path):
+    try:
+        yt = YouTube(url)
+        stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
+        stream.download(output_path)
+        print(f"Video downloaded successfully: {output_path}")
+        return stream.default_filename
+    except Exception as e:
+        print(f"Error downloading video: {str(e)}")
+        return None
 
 def extract_audio(video_path, audio_path):
     try:
