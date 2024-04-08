@@ -1,0 +1,9 @@
+ffmpeg-python
+pydub
+SpeechRecognition
+pocketsphinx
+transformers
+nltk
+spacy
+gensim
+sumy
